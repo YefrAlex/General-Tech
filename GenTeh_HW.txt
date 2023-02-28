@@ -1,0 +1,57 @@
+ 1 уровень сложности: (1) Выберите любую предметную область (кроме интернет-магазина) и опишите типовые бизнес-процессы (5-7 шт.) и их соответствие операциям по CRUD.
+
+
+Боьница
+
+Регистрация пациента - Create;
+Запись на прием  - Read;
+Запись результата обследования - Update;
+Выписка рецепта - Create;
+Покупка лекарств в больничной аптеке - Update;
+Архивация рецепта - (псевдо) Delete;
+Вызов скорой помощи - Create;
+Консилиум - Read;
+Операция - Update;
+Смерть пациента -  Delete;
+
+
+
+В РАМКАХ БД "ПЕСОЧНИЦА":
+
+
+(2) Вывести все товары в диапазоне цены от 10 до 100, отсортированные по названию.
+
+SELECT * 
+FROM Products
+WHERE Price
+BETWEEN 10 AND 100
+ORDER BY ProductName ASC
+
+
+(3) Для клиентов не из Германии и не из Франции очистить адрес.
+
+UPDATE Customers
+SET Address =''
+WHERE NOT Country IN ('France', 'Germany')
+
+
+(4) Удалить (безвозвратно) клиентов из 'USA'.
+
+DELETE FROM Customers
+WHERE Country = 'USA'
+
+
+(5) Вывести всех поставщиков (suppliers) из Токио, Япония, отсортированные по имени.
+
+SELECT *
+FROM Suppliers
+WHERE City = 'Tokyo' AND Country = 'Japan'
+ORDER BY SupplierName ASC
+
+
+(6) Вывести товары из категорий 1 и 5 с ценой до 20 EURO с сортировкой по возрастанию цены. 
+
+SELECT *
+FROM Products
+WHERE CategoryID IN (1, 5) AND Price < 20
+ORDER BY Price ASC
